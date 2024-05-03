@@ -1,0 +1,113 @@
+import random
+
+# Word Jumble Program.
+
+# Improve “Word Jumble” so that each word is paired with a hint.
+# The player should be able to see the hint if he or she is stuck.
+# Add a scoring system that rewards players who solve a jumble
+# without asking for the hint.
+
+# word list
+word_library = ("game", "jury", "decoy", "rift", "world", "read", "whale", "\
+coal", "rock", "plant", "glow", "bomb")
+
+# picking a random word from word_library
+word = random.choice(word_library)
+
+# hints library
+hint = ""
+hint = hint.lower()
+if word == "game":
+    hint = ("A playful or competitive activity")
+elif word == "jury":
+    hint = ("A group of judges in a competition")
+elif word == "decoy":
+    hint = ("A person or object meant to lure somebody into danger")
+elif word == "rift":
+    hint = ("A state of conflict")
+elif word == "world":
+    hint = ("The universe")
+elif word == "read":
+    hint = ("To interprete written information")
+elif word == "whale":
+    hint = ("A large fish")
+elif word == "coal":
+    hint = ("Black substance mainly use for cooking or heating")
+elif word == "rock":
+    hint = ("A hard stone")
+elif word == "plant":
+    hint = ("Living thing possesing leaves")
+elif word == "glow":
+    hint = ("To shine brighter")
+else:
+    hint = ("An explosive device")
+
+
+# create a variable for word for later use if correct
+correct = word
+
+# scoring system
+high_score = 100
+no_of_try = 2
+
+# settin up the jumble.
+jumble = ""
+
+while word:
+    position = random.randrange(len(word))
+    jumble += word[position]
+    word = word[:position] + word[(position +1):]
+
+# Getting user's name
+name= input("What is your name: ")
+name = name.upper()
+# Display welcome message and some more info
+print("""
+                       WELCOME TO WORD JUMBLE!
+        You are to provide the correct spelling of the jumble.
+          If you are stuck, type 'hint' to get a head start
+          You will be rewarded 100 points if you use no hint.
+              You can only make use of the 'hint' twice.
+            You have 3 trials to get the correct spelling.
+                      GOODLUCK """, name,"""!
+""")
+
+
+# display the jumble
+print("The jumble is ", jumble, )
+
+# getting user guees/input
+guess = input("\nWhat is the correct spelling? : ")
+guess = guess.lower()
+
+# the while loop
+while guess != correct and guess != "" and high_score > 0 and no_of_try > 0:
+    if guess == "hint":
+        high_score -= 50
+        print(hint)
+    else:
+        print("\nThat is incorrect!")
+        no_of_try -= 1
+    guess = input("\nwhat is the correct spelling? :")
+    guess = guess.lower()
+    
+
+if high_score < 10:
+    print ("\nGAME OVER! GAME OVER!! GAME OVER!!!")
+if no_of_try < 1:
+    print ("\nGAME OVER! GAME OVER!! GAME OVER!!!")
+if guess == correct:
+    print("\nCongratulations ", name, "! you got it right.")
+
+print("\nREWARDED POINTS = ", high_score)
+
+input("\nPress the enter key to exit.")
+
+
+
+
+
+
+
+
+
