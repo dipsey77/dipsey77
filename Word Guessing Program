@@ -1,0 +1,63 @@
+import random
+# Word Guessing Program
+# Create a game where the computer picks a random word and
+# the player has to guess that word. The computer tells the
+# player how many letters are in the word. Then the player gets
+# five chances to ask if a letter is in the word. The computer can
+# only respond with “yes” or “no”. Then, the player must guess
+# the word.
+
+# create word library
+word_library = ("goal", "money", "rise", "wealthy")
+# random selection from word_library
+word = random.choice(word_library)
+correct = word
+
+no_of_letters = len(correct)
+
+# welcome the player
+print("""
+                WELCOME TO MY GUESSING GAME!
+        I have a word in mind, I challenge you to guess the
+                              word.
+      You have only five chances to ask if a letter in the word
+            to check if a letter is in word, type "ask".
+        
+        The first thing i will reveal to you is the numbers
+          of letters in the word, I hope you found it now.
+        """)
+   
+# prints the number of letters in word
+print("The number of letters in the word is ", no_of_letters,)
+
+# scoring system
+chance = 5
+
+# get user input
+guess = input("Your guess: ")
+guess = guess.lower()
+
+while guess != correct and guess != "" and chance  > 0:
+    if guess == "ask":
+        ask = input("What letter do you want to check? : ")
+        if ask in correct:
+            print("Yes")
+        else:
+            print("No")
+        chance -= 1
+    else:
+a        print("\nOops, you guess is wrong!")
+    guess = input("\nYour guess: ")
+    guess = guess.lower()
+    
+if guess == correct:
+    print("\n\nCONGRATULATIONS! You guessed it right.")
+    
+if chance < 1:
+    print("\nGAMEOVER! GAMEOVER!! GAMEOVER!!!")
+    print("\nThe correct word is ",correct)
+    
+input("\n\nPress the enter key to exit")
+    
+        
+    
