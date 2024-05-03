@@ -1,0 +1,76 @@
+# Celebrities fullnames program.
+# Write  program that lets the user enter the name of a celebrity and produces the fullname name of
+# the celebrity.
+# Allow the user to add, replace, and delete name pairs.
+
+# celebrities and their fullnames library
+book = {"reese witherspoon": "Laura Jeanne Reese Witherspoon", "the weekend": "Abel Makkonen Tesfaye", "\
+rihanna": "Robyn Rihanna Fenty", "lady gaga": "Stefani Joanne Angelina Germanotta", "\
+burna boy": "Damini Ebunoluwa Ogulu", "miley cyrus": "Destiny Hope Cyrus", "elton john": "\
+Reginald Kenneth Dwight", "adele": "Adele Laurie Blue Adkins", "vin diesel": "Mark Sinclair", "\
+alicia keys": "Alicia Augello Cook"}
+
+#dipsplay celebrities names available.
+print("Here are the list of celebrities available by default, you can update it if you wish.")
+print("""
+              Reese Witherspoon | The Weeknd | Rihanna | Lady Gaga | Burna boy
+                Miley Cyrus | Elton John | Adele  | Vin Diesel | Alicia Keys
+    """)
+
+choice = None
+while choice != "0":
+    print(
+    """
+    0 - Quit
+    1 - Look up fullname
+    2 - Add a fullname
+    3 - Update a fullname
+    4 - Delete a fullname
+    """
+    )
+
+    choice = input("Choice: ")
+    print()
+
+    if choice == "0":
+        print("Good-bye.")
+
+    elif choice == "1":
+        name = input("What artist fullname to you want to get?: ")
+        name = name.lower()
+        if name in book:
+            fullname = book[name]
+            print("\nFull name of ", name, "is: ",fullname)
+        else:
+            print("Sorry, I don't know that name ", name,"I'd recommend \
+you check \
+if it's spelt correctly.")
+    elif choice == "2":
+        name = input("\nWhat artist fullname do you want to add to add?: ")
+        if name not in book:
+            fullname=input("What is the artist's fullname?: ")
+            book[name] = fullname
+            print("\n", name, "has been added.")
+        else:
+            print("\nThat term already exists! Try redefining it.")
+
+    elif choice == "3":
+        name = input("\nWhat artist's fullname do you want to correct?: ")
+        name = name.lower()
+        if name in book:
+            fullname = ("What is the artist's correct fullname?: ")
+            book[name]=fullname
+            print("\n", name, "surname has been corrected.")
+        else:
+            print("\nThat term doesn't exist Try adding it.")
+    elif choice == "4":
+        name = input("\nWhat artist's name do you want me to delete?: ")
+        name = name.lower()
+        if name in book:
+            del book[name]
+            print("\nOkay, I deleted", name)
+        else: print("\nI can't do that!", term, "doesn't exist in the book.")
+    else:
+        print("\nSorry, but", choice, "isn't a valid choice.")
+
+input("\nPress the enter key to exit.")
