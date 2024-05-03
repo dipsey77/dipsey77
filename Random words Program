@@ -1,0 +1,30 @@
+Create a program that prints a list of words in random order.
+# The program should print all the words and not repeat any.
+
+import random
+
+count = 0
+
+new = []
+
+words=("Gold", "Money", "Whealth", "Motor", "Amplify", "Goat", "Boombest")
+print("The initial words are: ")
+print(words)
+
+while count < len(words):
+    r_word = random.choice(words)
+    if r_word not in new:
+        new.append(r_word)
+        count += 1
+    else:
+        continue
+        
+    print(r_word)
+    input("\npress the enter key")
+
+
+for i in new:
+    print(i, end=" ")
+
+input("\n\nPress enter key to exit")
+
