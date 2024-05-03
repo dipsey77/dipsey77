@@ -1,0 +1,22 @@
+# Printing message backwardly
+
+print("Welcome to my world! In this world, we print your messages backwardly.")
+
+count = 0
+code = -1
+n_word = (" ")
+
+word=input("Place your word here visitor: ")
+
+l_word=len(word)
+
+while count < l_word:
+    n_word += (word[code])
+    count +=1
+    code -= 1
+
+print (n_word)
+
+
+
+input("\n\nPress the enter key to exit: ")
