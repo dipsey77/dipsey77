@@ -1,0 +1,95 @@
+# Point Distributor Program
+
+# scoring system
+pool = 30
+strength = 0
+health = 0
+wisdom = 0
+dexterity = 0
+
+choice = None
+
+# while loop
+while choice!= 0:
+    print("you have ", pool, "points available in your pool to spend.\n")
+    print("Strength = ", strength)
+    print("Health = ", health)
+    print("Wisdom = ", wisdom)
+    print("Dexterity = ", dexterity)
+
+    print("""
+            0 - Exit
+            1 - Add point(s) to:
+            2 - Subtract point(s) from:
+            """)
+    #get user input
+    choice = int(input("What is your choice?: "))
+    
+    if choice == 0:
+        print("Good-bye")
+
+        print()
+
+    elif choice == 1:
+        element = input("Which element do you want to add point to?: ")
+        point = int(input("How many point do you want to add to add?: "))
+        if point <= pool:
+            if element == "strength":
+                strength += point
+                pool = pool - point
+            elif element == "health":
+                health += point
+                pool = pool - point
+            elif element == "wisdom":
+                wisdom += point
+                pool = pool - point
+            elif element == "dexterity":
+                dexterity += point
+                pool = pool - point
+            else:
+                print("\nThis is an invalid element\n")
+                
+                
+        else:
+            print("\nThis is above the total points available in the pool!\n")
+            
+        
+        
+    elif choice == 2:
+        element = input("Which element do you want to subtract point from? :")
+        point = int(input("How many point do you want to subtract from element?: "))
+        print()
+        
+        if element == "strength":
+            if point <= strength:
+                strength -= point
+                pool += point
+            else:
+                print("\value provided is above point available in element.\n")
+        elif element == "health":
+            if point <= health:
+                health -= point
+                pool += point
+            else:
+                print("\value provided is above point available in element.\n")
+        elif element == "wisdom":
+            if point <= wisdom:
+                wisdom -= point
+                pool += point
+            else:
+                print("value provided is above point available in element.\n")
+        elif element == "dexterity":
+            if point <= dexterity:
+                dexterity -= point
+                pool += point
+            else:
+                print("\value provided is above point available in element.\n")
+        else:
+            print("\nThis is an invalid element.\n")
+    else:
+        print("\nThis is an invalid choice.\n")
+
+input("Press Enter key to exit.")
+
+
+
